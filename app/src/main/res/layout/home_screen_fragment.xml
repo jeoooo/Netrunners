@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1E1E1E"
+    tools:context=".HomeScreenFragment">
+
+    <Button
+        android:id="@+id/button_cpu"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/roundcorners2"
+        android:text="CPU"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_gpu"
+        app:layout_constraintEnd_toStartOf="@+id/button_gpu"
+        app:layout_constraintTop_toTopOf="@+id/button_gpu"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_gpu"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundcorners2"
+        android:text="GPU"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.067" />
+
+    <Button
+        android:id="@+id/button_motherboards"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:background="@drawable/roundcorners2"
+        android:text="Motherbaords"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_gpu"
+        app:layout_constraintStart_toEndOf="@+id/button_gpu"
+        app:layout_constraintTop_toTopOf="@+id/button_gpu"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_pcCases"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/roundcorners2"
+        android:text="PC      Cases"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_ram"
+        app:layout_constraintEnd_toStartOf="@+id/button_ram"
+        app:layout_constraintTop_toTopOf="@+id/button_ram"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_ram"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundcorners2"
+        android:text="RAM"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_gpu"
+        app:layout_constraintVertical_bias="0.244" />
+
+    <Button
+        android:id="@+id/button_storageDrive"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:background="@drawable/roundcorners2"
+        android:text="Hard Drive's and Ssd's"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_ram"
+        app:layout_constraintStart_toEndOf="@+id/button_ram"
+        app:layout_constraintTop_toTopOf="@+id/button_ram"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_1"
+        android:layout_width="20dip"
+        android:layout_height="20dip"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/darkroundcorners"
+        app:layout_constraintBottom_toBottomOf="@+id/button_2"
+        app:layout_constraintEnd_toStartOf="@+id/button_2"
+        app:layout_constraintTop_toTopOf="@+id/button_2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_2"
+        android:layout_width="20dip"
+        android:layout_height="20dip"
+        android:background="@drawable/roundcorners"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_ram"
+        app:layout_constraintVertical_bias="0.306" />
+
+    <Button
+        android:id="@+id/button_3"
+        android:layout_width="20dip"
+        android:layout_height="20dip"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/roundcorners"
+        app:layout_constraintBottom_toBottomOf="@+id/button_2"
+        app:layout_constraintStart_toEndOf="@+id/button_2"
+        app:layout_constraintTop_toTopOf="@+id/button_2"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

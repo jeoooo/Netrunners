@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1E1E1E"
+    tools:context=".HomeScreenFragment_2">
+
+    <Button
+        android:id="@+id/button_psu"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/roundcorners2"
+        android:text="PSU"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_keyboards"
+        app:layout_constraintEnd_toStartOf="@+id/button_keyboards"
+        app:layout_constraintTop_toTopOf="@+id/button_keyboards"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_keyboards"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundcorners2"
+        android:text="Keyboards"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.067" />
+
+    <Button
+        android:id="@+id/button_computerMouse"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:background="@drawable/roundcorners2"
+        android:text="Computer Mouse"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_keyboards"
+        app:layout_constraintStart_toEndOf="@+id/button_keyboards"
+        app:layout_constraintTop_toTopOf="@+id/button_keyboards"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_monitors"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/roundcorners2"
+        android:text="Monitors"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_headsets"
+        app:layout_constraintEnd_toStartOf="@+id/button_headsets"
+        app:layout_constraintTop_toTopOf="@+id/button_headsets"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_headsets"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/roundcorners2"
+        android:text="Headsets"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_keyboards"
+        app:layout_constraintVertical_bias="0.244" />
+
+    <Button
+        android:id="@+id/button_printers"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:background="@drawable/roundcorners2"
+        android:text="Printers"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_headsets"
+        app:layout_constraintStart_toEndOf="@+id/button_headsets"
+        app:layout_constraintTop_toTopOf="@+id/button_headsets"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_1"
+        android:layout_width="20dip"
+        android:layout_height="20dip"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/roundcorners"
+        app:layout_constraintBottom_toBottomOf="@+id/button_2"
+        app:layout_constraintEnd_toStartOf="@+id/button_2"
+        app:layout_constraintTop_toTopOf="@+id/button_2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_2"
+        android:layout_width="20dip"
+        android:layout_height="20dip"
+        android:background="@drawable/darkroundcorners"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_headsets"
+        app:layout_constraintVertical_bias="0.306" />
+
+    <Button
+        android:id="@+id/button_3"
+        android:layout_width="20dip"
+        android:layout_height="20dip"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/roundcorners"
+        app:layout_constraintBottom_toBottomOf="@+id/button_2"
+        app:layout_constraintStart_toEndOf="@+id/button_2"
+        app:layout_constraintTop_toTopOf="@+id/button_2"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

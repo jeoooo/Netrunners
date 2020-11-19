@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1E1E1E"
+    tools:context=".SearchResult">
+
+    <EditText
+        android:id="@+id/searchBar"
+        android:layout_width="250dp"
+        android:layout_height="50dip"
+        android:background="@drawable/roundcorners"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:paddingLeft="20dp"
+        android:text="Search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <ImageButton
+        android:id="@+id/searchButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#0000ffff"
+        app:layout_constraintBottom_toBottomOf="@+id/searchBar"
+        app:layout_constraintEnd_toEndOf="@+id/searchBar"
+        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintStart_toStartOf="@+id/searchBar"
+        app:layout_constraintTop_toTopOf="@+id/searchBar"
+        app:srcCompat="@android:drawable/ic_menu_search"
+        tools:srcCompat="?android:attr/actionModeWebSearchDrawable" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search Results"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchBar"
+        app:layout_constraintVertical_bias="0.023" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
