@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/netrunnersLogo"
-        android:layout_width="380dp"
-        android:layout_height="190dp"
+        android:layout_width="360dp"
+        android:layout_height="170dp"
         android:layout_centerInParent="true"
         app:srcCompat="@drawable/netrunners" />
 </RelativeLayout>
