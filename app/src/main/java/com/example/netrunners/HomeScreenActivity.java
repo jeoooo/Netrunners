@@ -44,24 +44,24 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         searchBar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                OpenSearchActivity();
+                openSearchActivity();
             }
         });
 
         allProducts.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                OpenAllProductsActivity();
+                openAllProductsActivity();
             }
         });
 
     }
 
-    public void OpenSearchActivity() {
-        Intent intent = new Intent(this, SearchActivity.class);
+    public void openSearchActivity() {
+        Intent intent = new Intent(this, SearchResult.class);
         startActivity(intent);
     }
 
-    public void OpenAllProductsActivity() {
+    public void openAllProductsActivity() {
         Intent intent = new Intent(this, AllProductsActivity.class);
         startActivity(intent);
     }
