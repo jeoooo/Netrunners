@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AllProductsActivity_2 extends AppCompatActivity {
 
     ImageView previous, next;
-    ImageView backToHomeSreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +18,6 @@ public class AllProductsActivity_2 extends AppCompatActivity {
 
         previous = findViewById(R.id.imageView_previous);
         next = findViewById(R.id.imageView_next);
-        backToHomeSreen = findViewById(R.id.imageView_backToHomeSreen);
 
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,18 +33,6 @@ public class AllProductsActivity_2 extends AppCompatActivity {
             }
         });
 
-        backToHomeSreen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openHomeScreenActivity();
-            }
-        });
-
-    }
-
-    private void openHomeScreenActivity() {
-        Intent intent = new Intent(this, HomeScreenActivity.class);
-        startActivity(intent);
     }
 
     public void openAllProductActivity() {

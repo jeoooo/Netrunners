@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView_backToHomeSreen"
+        android:id="@+id/imageView_backToHomeScreen"
         android:layout_width="160dp"
         android:layout_height="80dp"
         android:layout_marginStart="16dp"

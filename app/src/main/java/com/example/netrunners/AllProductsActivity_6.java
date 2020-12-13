@@ -9,24 +9,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AllProductsActivity_6 extends AppCompatActivity {
 
-    ImageView previous;
-    ImageView backToHomeScreen;
+    ImageView previous, homeScreenButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_products_6);
 
+        homeScreenButton = findViewById(R.id.imageView_backToHomeScreen);
         previous = findViewById(R.id.imageView_previous);
-        backToHomeScreen = findViewById(R.id.imageView_backToHomeScreen);
 
-        backToHomeScreen.setOnClickListener(new View.OnClickListener() {
+        homeScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 openHomeScreenActivity();
             }
         });
-
 
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,13 +35,13 @@ public class AllProductsActivity_6 extends AppCompatActivity {
 
     }
 
-    private void openHomeScreenActivity() {
-        Intent intent = new Intent(this, HomeScreenActivity.class);
+    public void openAllProductActivity_5() {
+        Intent intent = new Intent(this, AllProductsActivity_5.class);
         startActivity(intent);
     }
 
-    public void openAllProductActivity_5() {
-        Intent intent = new Intent(this, AllProductsActivity_5.class);
+    public void openHomeScreenActivity() {
+        Intent intent = new Intent(this, HomeScreenActivity.class);
         startActivity(intent);
     }
 
