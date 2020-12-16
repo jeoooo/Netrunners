@@ -18,13 +18,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     Dialog myDialog;
     Context context;
     View temp; // For setOnCLickListener
-    ArrayList<Integer> images;
-    ArrayList<String> data1;
+    ArrayList<MyProduct> products;
 
     public MyAdapter(Context context, String category) {
         this.context = context;
-        this.images = MyData.getImage(category);
-        this.data1 = MyData.getText(category);
+        this.products = MyData.getProduct(category);
     }
 
     @NonNull
@@ -39,23 +37,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
-        holder.textView1.setText(data1.get(position));
-        holder.imageView.setImageResource(images.get(position));
+        holder.textView_name.setText(products.get(position).getName());
+        holder.textView_price.setText(String.valueOf(products.get(position).getPrice()));
+        holder.imageView.setImageResource(products.get(position).getImage());
     }
 
     @Override
     public int getItemCount() {
-        return data1.size();
+        return products.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textView1;
+        TextView textView_name, textView_price;
         ImageView imageView;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView1 = itemView.findViewById(R.id.textView);
+            textView_name = itemView.findViewById(R.id.textView);
+            textView_price = itemView.findViewById(R.id.textView_price);
             imageView = itemView.findViewById(R.id.imageView4);
         }
     }

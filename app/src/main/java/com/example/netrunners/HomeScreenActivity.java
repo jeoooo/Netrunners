@@ -57,7 +57,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     }
 
     public void openSearchActivity() {
-        Intent intent = new Intent(this, SearchResult.class);
+        Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);
     }
 
