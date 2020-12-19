@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
 
     RecyclerView recyclerView;
     EditText searchBar;
+    ImageView homeButton;
 
     String[][] spinner_array = {
             {"All Price(Lowest -> Highest)", "All", "low to high"},
@@ -84,6 +86,14 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
 
         recyclerView = findViewById(R.id.recyclerView);
         searchBar = findViewById(R.id.searchBar);
+        homeButton = findViewById(R.id.imageView_homeButton);
+
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHomeScreenActivity();
+            }
+        });
 
         searchBar.setText(MyData.search);
 
@@ -96,6 +106,11 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+    }
+
+    private void openHomeScreenActivity() {
+        Intent intent = new Intent(this, HomeScreenActivity.class);
+        startActivity(intent);
     }
 
     @Override
