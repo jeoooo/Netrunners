@@ -4,7 +4,63 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="sort">
-        <item>Price(Lowest -> Highest)</item>
-        <item>Price(Highest -> Lowest)</item>
+        <item>---</item>
+
+        <item>All Price(Lowest -> Highest)</item>
+        <item>All Price(Highest -> Lowest)</item>
+
+        <item>Motherboard Price(Lowest -> Highest)</item>
+        <item>Motherboard Price(Highest -> Lowest)</item>
+
+        <item>Graphics Card Price(Lowest -> Highest)</item>
+        <item>Graphics Card Price(Highest -> Lowest)</item>
+
+        <item>Monitor Price(Lowest -> Highest)</item>
+        <item>Monitor Price(Highest -> Lowest)</item>
+
+        <item>Router Price(Lowest -> Highest)</item>
+        <item>Router Price(Highest -> Lowest)</item>
+
+        <item>Keyboard Price(Lowest -> Highest)</item>
+        <item>Keyboard Price(Highest -> Lowest)</item>
+
+        <item>Printer Price(Lowest -> Highest)</item>
+        <item>Printer Price(Highest -> Lowest)</item>
+
+        <item>Power Supply Price(Lowest -> Highest)</item>
+        <item>Power Supply Price(Highest -> Lowest)</item>
+
+        <item>Table Price(Lowest -> Highest)</item>
+        <item>Table Price(Highest -> Lowest)</item>
+
+        <item>Mouse Price(Lowest -> Highest)</item>
+        <item>Mouse Price(Highest -> Lowest)</item>
+
+        <item>Headset Price(Lowest -> Highest)</item>
+        <item>Headset Price(Highest -> Lowest)</item>
+
+        <item>RAM Price(Lowest -> Highest)</item>
+        <item>RAM Price(Highest -> Lowest)</item>
+
+        <item>PC Case Price(Lowest -> Highest)</item>
+        <item>PC Case Price(Highest -> Lowest)</item>
+
+        <item>External Storage Price(Lowest -> Highest)</item>
+        <item>External Storage Price(Highest -> Lowest)</item>
+
+        <item>Cable Price(Lowest -> Highest)</item>
+        <item>Cable Price(Highest -> Lowest)</item>
+
+        <item>Storage Price(Lowest -> Highest)</item>
+        <item>Storage Price(Highest -> Lowest)</item>
+
+        <item>Chair Price(Lowest -> Highest)</item>
+        <item>Chair Price(Highest -> Lowest)</item>
+
+        <item>Projector Price(Lowest -> Highest)</item>
+        <item>Projector Price(Highest -> Lowest)</item>
+
+        <item>Processor Price(Lowest -> Highest)</item>
+        <item>Processor Price(Highest -> Lowest)</item>
     </string-array>
 </resources>

@@ -21,11 +21,24 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
+    ProductDatabase db = new ProductDatabase(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen_activity);
+
+        // Add MyData on table if Empty or NotExist
+        if(!db.table1Exist()) {
+            ArrayList<MyProduct> listDB = MyData.getAllProducts();
+            for (int j = 0; j < listDB.size(); j++) {
+                db.addProduct(String.valueOf(listDB.get(j).getImage()),
+                        listDB.get(j).getName(),
+                        listDB.get(j).getCategory(),
+                        String.valueOf(listDB.get(j).getPrice()),
+                        String.valueOf(500));
+            }
+        }
 
         // Pager
         List<Fragment> list = new ArrayList<>();

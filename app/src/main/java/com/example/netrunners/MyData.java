@@ -1,7 +1,14 @@
 package com.example.netrunners;
 
+import android.content.Context;
+import android.view.View;
+import android.widget.Toast;
+
+import java.net.PortUnreachableException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class MyData {
 
@@ -9,27 +16,29 @@ public class MyData {
 
     public static String search;
 
+    public static int viewProductId;
+
     // Identifiers on which category to view
 
-    private static String[] categories = {
-            "motherboard",
-            "graphics card",
-            "monitor",
-            "router",
-            "keyboard",
-            "printer",
-            "power supply",
-            "table",
-            "mouse",
-            "headset",
-            "ram",
-            "pc case",
-            "external storage",
-            "cable",
-            "storage",
-            "chair",
-            "project",
-            "processor"
+    public static String[] categories = {
+            "Motherboard",
+            "Graphics Card",
+            "Monitor",
+            "Router",
+            "Keyboard",
+            "Printer",
+            "Power Supply",
+            "Table",
+            "Mouse",
+            "Headset",
+            "RAM",
+            "PC Case",
+            "External Storage",
+            "Cable",
+            "Hard Drive/SSD",
+            "Chair",
+            "Project",
+            "Processor"
     };
 
     // Images
@@ -556,31 +565,79 @@ public class MyData {
             processorPrice
     };
 
-    // Methods for getting Images, Text and Prices
+    // Method for filling the Database table1
 
-    public static ArrayList getProduct(String category) {
-        ArrayList<MyProduct> all = new ArrayList<>();
-        // If all images is requested
-        if (category.equals("all")) {
-            for (int j = 0; j < categoryImages.length; j++) {
-                for (int s = 0; s < categoryImages[j].length; s++) {
-                    all.add(new MyProduct(categoryImages[j][s], categoryText[j][s], categoryPrice[j][s]));
-                }
+    public static ArrayList<MyProduct> getAllProducts() {
+        ArrayList<MyProduct> rtn = new ArrayList<>();
+        for (int j = 0; j < categoryImages.length; j++) {
+            for (int s = 0; s < categoryImages[j].length; s++) {
+                rtn.add(new MyProduct(categoryImages[j][s], categoryText[j][s],categories[j], categoryPrice[j][s]));
             }
-            return all;
         }
-        // If a specific category or group of image is requested
+        return rtn;
+    }
+
+    public static MyProduct getProduct(Context context, int id) {
+        ArrayList<MyProduct> temp;
+        ProductDatabase db = new ProductDatabase(context);
+        temp = db.getDBArrayList();
+        for(int j = 0; j < temp.size(); j++) {
+            if(id == temp.get(j).getId()) {
+                return temp.get(j);
+            }
+        }
+        return null;
+    }
+
+    public static ArrayList<MyProduct> getProducts(String category, Context context) {
+        ArrayList<MyProduct> rtn = new ArrayList<>();
+        ProductDatabase db = new ProductDatabase(context);
+        ArrayList<MyProduct> tempList = db.getDBArrayList();
+        ArrayList<MyProduct> categorizedList = db.getDBArrayList();
+
+        if(category.equals("All")) {
+            rtn = tempList;
+        }
         else {
-            for (int j = 0; j < categories.length; j++) {
-                if (category.equals(categories[j])) {
-                    for (int s = 0; s < categoryImages[j].length; s++) {
-                        all.add(new MyProduct(categoryImages[j][s], categoryText[j][s], categoryPrice[j][s]));
-                    }
+            for(int j = 0; j < tempList.size(); j++) {
+                if(tempList.get(j).getCategory().equals(category)) {
+                    rtn.add(new MyProduct(
+                            tempList.get(j).getId(),
+                            tempList.get(j).getImage(),
+                            tempList.get(j).getName(),
+                            tempList.get(j).getCategory(),
+                            tempList.get(j).getPrice(),
+                            tempList.get(j).getStock()
+                            ));
                 }
             }
         }
-        Collections.shuffle(all);
-        return all;
+        Collections.shuffle(rtn);
+        return rtn;
+    }
+
+    public static ArrayList<MyProduct> getLowToHigh(String category, Context context) {
+        ArrayList<MyProduct> rtn;
+        rtn = MyData.getProducts(category, context);
+        Collections.sort(rtn, new Comparator<MyProduct>() {
+            @Override
+            public int compare(MyProduct o1, MyProduct o2) {
+                return Double.compare(o1.getPrice(), o2.getPrice());
+            }
+        });
+        return rtn;
+    }
+
+    public static ArrayList<MyProduct> getHighToLow(String category, Context context) {
+        ArrayList<MyProduct> rtn;
+        rtn = MyData.getProducts(category, context);
+        Collections.sort(rtn, new Comparator<MyProduct>() {
+            @Override
+            public int compare(MyProduct o1, MyProduct o2) {
+                return Double.compare(o2.getPrice(), o1.getPrice());
+            }
+        });
+        return rtn;
     }
 
 }
