@@ -34,6 +34,7 @@ public class SearchActivity extends AppCompatActivity {
 
     public void openSearchResult() {
         Intent intent = new Intent(this, SearchResult.class);
+        intent.putExtra("search", searchBar.getText().toString());
         startActivity(intent);
     }
 

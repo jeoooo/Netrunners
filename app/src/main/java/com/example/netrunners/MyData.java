@@ -16,10 +16,6 @@ public class MyData {
 
     public static String search;
 
-    //public static int viewProductId; // Id of the
-
-    // Identifiers on which category to view
-
     public static String[] categories = {
             "Motherboard",
             "Graphics Card",
