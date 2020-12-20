@@ -16,7 +16,7 @@ public class MyData {
 
     public static String search;
 
-    public static int viewProductId;
+    //public static int viewProductId; // Id of the
 
     // Identifiers on which category to view
 

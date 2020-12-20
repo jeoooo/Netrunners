@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class SearchResult extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -97,9 +98,8 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
 
         searchBar.setText(MyData.search);
 
-        MyAdapter myAdapter = new MyAdapter(this, "all", "none");
-        recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setNestedScrollingEnabled(true);
 
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.sort, android.R.layout.simple_spinner_item);
@@ -120,16 +120,16 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
 
         if(selected.equals("---")) {
             MyAdapter myAdapter = new MyAdapter(this, "All", "none");
+            myAdapter.setHasStableIds(true);
             recyclerView.setAdapter(myAdapter);
-            recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         }
 
         else {
             for (int j = 0; j < spinner_array.length; j++) {
                 if (selected.equals(spinner_array[j][0])) {
                     MyAdapter myAdapter = new MyAdapter(this, spinner_array[j][1], spinner_array[j][2]);
+                    myAdapter.setHasStableIds(true);
                     recyclerView.setAdapter(myAdapter);
-                    recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
                 }
             }
         }
