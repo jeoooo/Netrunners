@@ -96,7 +96,9 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-        searchBar.setText(MyData.search);
+        String search = getIntent().getExtras().getString("search");
+
+        searchBar.setText(search);
 
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setNestedScrollingEnabled(true);

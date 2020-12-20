@@ -12,10 +12,6 @@ import java.util.Comparator;
 
 public class MyData {
 
-    // Temp store search data
-
-    public static String search;
-
     public static String[] categories = {
             "Motherboard",
             "Graphics Card",
