@@ -9,7 +9,7 @@
 
     <ImageButton
 
-        android:id="@+id/imageButton_yourShoppingCart"
+        android:id="@+id/imageButton_OrderSummary"
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
@@ -65,6 +65,6 @@
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton_yourShoppingCart"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton_OrderSummary"
         app:layout_constraintVertical_bias="0.693" />
 </androidx.constraintlayout.widget.ConstraintLayout>
