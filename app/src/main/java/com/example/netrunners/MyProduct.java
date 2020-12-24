@@ -1,31 +1,53 @@
 package com.example.netrunners;
 
 public class MyProduct {
-    private int Id;
+    private int id;
     private int image;
     private String name;
     private String category;
     private double price;
     private int stock;
+    private int quantity;
+    private int cart_id;
+    private String description;
 
-    public MyProduct(int Id, int image, String name, String category, double price, int stock) {
-        this.Id = Id;
+    // ArrayList to store the data temporarily from the table
+    public MyProduct(int id, int image, String name, String category, double price, int stock, String description) {
+        this.id = id;
         this.image = image;
         this.name = name;
         this.category = category;
         this.price = price;
         this.stock = stock;
+        this.description = description;
     }
 
-    public MyProduct(int image, String name, String category, double price) {
+    // Used to store the all the data from MyData class to SQLite product table
+    public MyProduct(int image, String name, String category, double price, String description) {
         this.image = image;
         this.name = name;
         this.category = category;
         this.price = price;
+        this.description = description;
+    }
+
+    // Temporarily store the data from SQLite cart table
+    public MyProduct(int cart_id, int id, int image, String name, String category, double price, int quantity) {
+        this.cart_id = cart_id;
+        this.id = id;
+        this.image = image;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public int getImage() {
@@ -46,6 +68,18 @@ public class MyProduct {
 
     public int getStock() {
         return stock;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int getCart_Id() {
+        return cart_id;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
 }

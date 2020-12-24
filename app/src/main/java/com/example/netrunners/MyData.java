@@ -929,18 +929,41 @@ public class MyData {
             processorPrice
     };
 
+    private static String[][] categoryDescription = {
+            motherboardDescription,
+            graphicsCardDescription,
+            monitorDescription,
+            routerDescription,
+            keyboardDescription,
+            printerDescription,
+            powerSupplyDescription,
+            tableDescription,
+            mouseDescription,
+            headsetDescription,
+            ramDescription,
+            pcCaseDescription,
+            externalStorageDescription,
+            cablesDescription,
+            storageDescription,
+            chairDescription,
+            projectorDescription,
+            processorDescription
+    };
+
     // Method for filling the Database table1
 
+    // Used for when the user opens the app, all the data is stored in the products table
     public static ArrayList<MyProduct> getAllProducts() {
         ArrayList<MyProduct> rtn = new ArrayList<>();
         for (int j = 0; j < categoryImages.length; j++) {
             for (int s = 0; s < categoryImages[j].length; s++) {
-                rtn.add(new MyProduct(categoryImages[j][s], categoryText[j][s],categories[j], categoryPrice[j][s]));
+                rtn.add(new MyProduct(categoryImages[j][s], categoryText[j][s], categories[j], categoryPrice[j][s], categoryDescription[j][s]));
             }
         }
         return rtn;
     }
 
+    // Getting one specific product from the product table
     public static MyProduct getProduct(Context context, int id) {
         ArrayList<MyProduct> temp;
         ProductDatabase db = new ProductDatabase(context);
@@ -953,15 +976,18 @@ public class MyData {
         return null;
     }
 
+    // Used to get all the products to display on the recyclerView
+    // Gets data from the table and stores it in ArrayList of Object my product
     public static ArrayList<MyProduct> getProducts(String category, Context context) {
         ArrayList<MyProduct> rtn = new ArrayList<>();
         ProductDatabase db = new ProductDatabase(context);
         ArrayList<MyProduct> tempList = db.getDBArrayList();
         ArrayList<MyProduct> categorizedList = db.getDBArrayList();
-
+        // If all products is requested
         if(category.equals("All")) {
             rtn = tempList;
         }
+        // If certain category of products is requested
         else {
             for(int j = 0; j < tempList.size(); j++) {
                 if(tempList.get(j).getCategory().equals(category)) {
@@ -971,7 +997,8 @@ public class MyData {
                             tempList.get(j).getName(),
                             tempList.get(j).getCategory(),
                             tempList.get(j).getPrice(),
-                            tempList.get(j).getStock()
+                            tempList.get(j).getStock(),
+                            tempList.get(j).getDescription()
                             ));
                 }
             }
@@ -980,6 +1007,7 @@ public class MyData {
         return rtn;
     }
 
+    // Uses the (getProducts) and arranges the product price from low to high
     public static ArrayList<MyProduct> getLowToHigh(String category, Context context) {
         ArrayList<MyProduct> rtn;
         rtn = MyData.getProducts(category, context);
@@ -992,6 +1020,7 @@ public class MyData {
         return rtn;
     }
 
+    // Uses the (getProducts) and arranges the product price from high to low
     public static ArrayList<MyProduct> getHighToLow(String category, Context context) {
         ArrayList<MyProduct> rtn;
         rtn = MyData.getProducts(category, context);
@@ -1002,6 +1031,42 @@ public class MyData {
             }
         });
         return rtn;
+    }
+
+    // Cart
+
+    // Get specific product from cart table
+    public static MyProduct getCartProduct(Context context, int cart_id) {
+        ArrayList<MyProduct> temp;
+        ProductDatabase db = new ProductDatabase(context);
+        temp = db.getCartArrayList();
+        for(int j = 0; j < temp.size(); j++) {
+            if(cart_id == temp.get(j).getId()) {
+                return temp.get(j);
+            }
+        }
+        return null;
+    }
+
+    // Checks if the added product is already in the cart
+    public static boolean isProductOnCart(Context context, int id) {
+        ProductDatabase db = new ProductDatabase(context);
+        ArrayList<MyProduct> temp = db.getCartArrayList();
+        for(int j = 0; j < temp.size(); j++) {
+            System.out.println(id + " " + temp.get(j).getId());
+            if(id == temp.get(j).getId()) {
+                db.updateCart(String.valueOf(temp.get(j).getId()),
+                        String.valueOf(temp.get(j).getQuantity()+1));
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Get all product from cart table
+    public static ArrayList<MyProduct> getAllCartProduct(Context context) {
+        ProductDatabase db = new ProductDatabase(context);
+        return db.getCartArrayList();
     }
 
 }

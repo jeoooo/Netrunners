@@ -19,7 +19,12 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.search_activity);
 
         searchButton = findViewById(R.id.searchButton);
-        searchBar = findViewById(R.id.searchBar);
+        searchBar = findViewById(R.id.searchActivity_searchBar);
+
+        if (getIntent().hasExtra("search")) {
+            String search = getIntent().getExtras().getString("search", "");
+            searchBar.setText(String.valueOf(search));
+        }
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -105,7 +105,7 @@
         android:id="@+id/button_2"
         android:layout_width="15dip"
         android:layout_height="15dip"
-        android:background="@drawable/darkroundcorners"
+        android:background="@drawable/yellowroundcorners"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,7 +125,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/imageView_prev"
         android:layout_width="25dp"
         android:layout_height="50dp"
         android:layout_marginTop="75dp"
@@ -134,7 +134,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/imageView_next"
         android:layout_width="25dp"
         android:layout_height="50dp"
         android:layout_marginTop="75dp"

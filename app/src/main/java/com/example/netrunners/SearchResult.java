@@ -18,8 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 public class SearchResult extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     RecyclerView recyclerView;
+    ImageView homeButton, buttonMyCart;
     EditText searchBar;
-    ImageView homeButton;
 
     String[][] spinner_array = {
             {"All Price(Lowest -> Highest)", "All", "low to high"},
@@ -86,8 +86,9 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.search_result);
 
         recyclerView = findViewById(R.id.recyclerView);
-        searchBar = findViewById(R.id.searchBar);
+        searchBar = findViewById(R.id.searchResult_searchBar);
         homeButton = findViewById(R.id.imageView_homeButton);
+        buttonMyCart = findViewById(R.id.imageView_buttonMyCart);
 
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,9 +97,22 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-        String search = getIntent().getExtras().getString("search");
+        buttonMyCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMyCartActivity();
+            }
+        });
 
+        String search = getIntent().getExtras().getString("search");
         searchBar.setText(search);
+
+        searchBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSearchActivity();
+            }
+        });
 
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setNestedScrollingEnabled(true);
@@ -142,4 +156,16 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+    public void openMyCartActivity() {
+        Intent intent = new Intent(this, MyCartActivity.class);
+        startActivity(intent);
+    }
+
+    public void openSearchActivity() {
+        Intent intent = new Intent(this, SearchActivity.class);
+        intent.putExtra("search", searchBar.getText().toString());
+        startActivity(intent);
+    }
+
 }
