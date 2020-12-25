@@ -18,6 +18,7 @@
         android:layout_marginRight="150dp"
         android:background="@drawable/roundcorners"
         android:ems="10"
+        android:focusable="false"
         android:hint="Search"
         android:inputType="textPersonName"
         android:paddingLeft="20dp"

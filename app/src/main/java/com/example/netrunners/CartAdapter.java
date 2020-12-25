@@ -9,20 +9,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder>{
+public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
 
     Context context;
     View temp; // For setOnCLickListener
     public static ArrayList<MyProduct> cart;
-
-    public CartAdapter() {
-
-    }
 
     public CartAdapter(Context context, ArrayList<MyProduct> cart) {
         this.context = context;

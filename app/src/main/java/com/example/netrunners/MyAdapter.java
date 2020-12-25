@@ -1,17 +1,15 @@
 package com.example.netrunners;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -21,20 +19,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     Context context;
     View temp; // For setOnCLickListener
+    ArrayList<MyProduct> searchProducts;
     ArrayList<MyProduct> products;
 
 
-    public MyAdapter(Context context, String category, String sort) {
+    public MyAdapter(Context context, String category, String sort, String search) {
         this.context = context;
-        if(sort.equals("low to high")) {
-            this.products = MyData.getLowToHigh(category, context);
+        if (sort.equals("low to high")) {
+            this.searchProducts = MyData.getLowToHigh(category, context);
+        } else if (sort.equals("high to low")) {
+            this.searchProducts = MyData.getHighToLow(category, context);
+        } else {
+            this.searchProducts = MyData.getProducts(category, context);
         }
-        else if(sort.equals("high to low")) {
-            this.products = MyData.getHighToLow(category, context);
-        }
-        else {
-            this.products = MyData.getProducts(category, context);
-        }
+
+        getSearch(search.toLowerCase());
+
     }
 
     @NonNull
@@ -81,6 +81,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
     }
 
-
+    public void getSearch(CharSequence charSequence) {
+        String charString = charSequence.toString();
+        if(charString.isEmpty()) {
+            products = searchProducts;
+        } else {
+            ArrayList<MyProduct> searchList = new ArrayList<>();
+            for(int j = 0; j < searchProducts.size(); j++) {
+                if(searchProducts.get(j).getName().toLowerCase().contains(charSequence)) {
+                    searchList.add(searchProducts.get(j));
+                }
+            }
+            products = searchList;
+        }
+    }
 
 }

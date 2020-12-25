@@ -90,6 +90,9 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
         homeButton = findViewById(R.id.imageView_homeButton);
         buttonMyCart = findViewById(R.id.imageView_buttonMyCart);
 
+        String search = getIntent().getExtras().getString("search");
+        searchBar.setText(search);
+
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,9 +106,6 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
                 openMyCartActivity();
             }
         });
-
-        String search = getIntent().getExtras().getString("search");
-        searchBar.setText(search);
 
         searchBar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,7 +135,7 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
         Toast.makeText(this, selected, Toast.LENGTH_SHORT).show();
 
         if(selected.equals("---")) {
-            MyAdapter myAdapter = new MyAdapter(this, "All", "none");
+            MyAdapter myAdapter = new MyAdapter(this, "All", "none", String.valueOf(searchBar.getText()));
             myAdapter.setHasStableIds(true);
             recyclerView.setAdapter(myAdapter);
         }
@@ -143,7 +143,7 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
         else {
             for (int j = 0; j < spinner_array.length; j++) {
                 if (selected.equals(spinner_array[j][0])) {
-                    MyAdapter myAdapter = new MyAdapter(this, spinner_array[j][1], spinner_array[j][2]);
+                    MyAdapter myAdapter = new MyAdapter(this, spinner_array[j][1], spinner_array[j][2], String.valueOf(searchBar.getText()));
                     myAdapter.setHasStableIds(true);
                     recyclerView.setAdapter(myAdapter);
                 }
