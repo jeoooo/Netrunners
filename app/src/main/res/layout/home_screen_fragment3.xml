@@ -128,7 +128,9 @@
         android:id="@+id/imageView_prev"
         android:layout_width="25dp"
         android:layout_height="50dp"
-        android:layout_marginTop="75dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="72dp"
         android:src="@drawable/arrow_left"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

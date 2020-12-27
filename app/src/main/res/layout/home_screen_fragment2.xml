@@ -128,7 +128,9 @@
         android:id="@+id/imageView_prev"
         android:layout_width="25dp"
         android:layout_height="50dp"
-        android:layout_marginTop="75dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="72dp"
         android:src="@drawable/arrow_left"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -137,7 +139,9 @@
         android:id="@+id/imageView_next"
         android:layout_width="25dp"
         android:layout_height="50dp"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:src="@drawable/arrow_right"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

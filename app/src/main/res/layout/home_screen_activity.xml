@@ -33,9 +33,9 @@
         android:layout_marginRight="16dp"
         android:background="@drawable/roundcorners"
         android:ems="10"
+        android:hint="Double Tap to Search"
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
-        android:hint="NVIDIA RTX 3090"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/netrunnersLogo" />
