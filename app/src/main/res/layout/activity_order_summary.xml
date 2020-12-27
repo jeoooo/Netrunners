@@ -15,12 +15,12 @@
         android:text="Total: $"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView_total"
+        app:layout_constraintEnd_toStartOf="@+id/textView_total"
+        app:layout_constraintTop_toTopOf="@+id/textView_total" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView_total"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginEnd="16dp"
@@ -29,9 +29,9 @@
         android:text="999.99"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintBottom_toBottomOf="@+id/button_checkOut"
+        app:layout_constraintEnd_toStartOf="@+id/button_checkOut"
+        app:layout_constraintTop_toTopOf="@+id/button_checkOut" />
 
     <View
         android:id="@+id/view"
@@ -40,7 +40,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/button_checkOut"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton_OrderSummary" />
@@ -184,7 +184,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_checkOut"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_marginEnd="16dp"

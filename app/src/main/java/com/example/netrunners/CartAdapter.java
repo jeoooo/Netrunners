@@ -50,6 +50,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                     cartDB.updateCart(String.valueOf(cart.get(position).getId()), String.valueOf(quantity));
                     cart.get(position).setQuantity(quantity);
                     updateData();
+                    MyCartActivity.getTotal(context);
                 }
             }
         });
@@ -63,6 +64,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                     cartDB.updateCart(String.valueOf(cart.get(position).getId()), String.valueOf(quantity));
                     cart.get(position).setQuantity(quantity);
                     updateData();
+                    MyCartActivity.getTotal(context);
                 }
             }
         });
