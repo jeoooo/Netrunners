@@ -31,7 +31,7 @@ public class ViewProductFragment extends Fragment {
 
         productImage.setImageResource(MyData.getProduct(getActivity(), id).getImage());
         productName.setText(MyData.getProduct(getActivity(), id).getName());
-        productPrice.setText(String.valueOf(MyData.getProduct(getActivity(), id).getPrice()));
+        productPrice.setText(MyData.FormatNumber(Double.valueOf(String.valueOf(MyData.getProduct(getActivity(), id).getPrice()))));
         productStock.setText(String.valueOf(MyData.getProduct(getActivity(), id).getStock()));
 
         return view;

@@ -9,8 +9,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Locale;
 
 public class MyData {
+
+    public static String FormatNumber(Double number) {
+        String formattedNumber;
+        formattedNumber = String.format(Locale.ENGLISH, "%,.2f", number);
+        return formattedNumber;
+    }
 
     public static String[] categories = {
             "Motherboard",

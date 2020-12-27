@@ -84,7 +84,7 @@ public class MyCartActivity extends AppCompatActivity {
         for(int j = 0; j < allCart.size(); j ++) {
             total += allCart.get(j).getPrice() * allCart.get(j).getQuantity();
         }
-        textView_total.setText(String.valueOf(total));
+        textView_total.setText(MyData.FormatNumber(Double.valueOf(String.valueOf(total))));
     }
 
     ItemTouchHelper.SimpleCallback simpleCallback=
