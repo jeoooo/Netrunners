@@ -15,7 +15,7 @@ public class ProductDatabase extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATABASE_NAME = "Products.db";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     private static final String PRODUCTS_TABLE = "Products";
     private static final String COLUMN_ID = "id";
@@ -29,6 +29,7 @@ public class ProductDatabase extends SQLiteOpenHelper {
     private static final String CART_TABLE = "Cart";
     private static final String COLUMN_CART_ID = "cart_id";
     private static final String COLUMN_QUANTITY = "quantity";
+    private static final String COLUMN_CHECKBOX = "checkbox";
 
     public ProductDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -55,7 +56,8 @@ public class ProductDatabase extends SQLiteOpenHelper {
                 COLUMN_NAME + " TEXT, " +
                 COLUMN_CATEGORY + " TEXT, " +
                 COLUMN_PRICE + " DOUBLE, " +
-                COLUMN_QUANTITY + " INTEGER);";
+                COLUMN_QUANTITY + " INTEGER, " +
+                COLUMN_CHECKBOX + " INTEGER);";
         db.execSQL(query);
     }
 
@@ -157,7 +159,7 @@ public class ProductDatabase extends SQLiteOpenHelper {
 
     // All cart table here
 
-    public void addCart(String id, String image, String name, String category, String price, String quantity) {
+    public void addCart(String id, String image, String name, String category, String price, String quantity, String checkbox) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -167,6 +169,7 @@ public class ProductDatabase extends SQLiteOpenHelper {
         cv.put(COLUMN_CATEGORY, category);
         cv.put(COLUMN_PRICE, price);
         cv.put(COLUMN_QUANTITY, quantity);
+        cv.put(COLUMN_CHECKBOX, checkbox);
 
         long result = db.insert(CART_TABLE, null, cv);
         if(result == -1) {
@@ -194,8 +197,9 @@ public class ProductDatabase extends SQLiteOpenHelper {
                 String category = cursor.getString(4);
                 double price = cursor.getInt(5);
                 int quantity = cursor.getInt(6);
+                int checkbox = cursor.getInt(7);
 
-                returnList.add(new MyProduct(cart_id, id, image, name, category, price, quantity));
+                returnList.add(new MyProduct(cart_id, id, image, name, category, price, quantity, checkbox));
 
             } while(cursor.moveToNext());
         }
@@ -217,6 +221,22 @@ public class ProductDatabase extends SQLiteOpenHelper {
         cv.put(COLUMN_QUANTITY, quantity);
 
         long result = db.update(CART_TABLE, cv, "id=?", new String[]{id});
+        if(result == -1) {
+            //Toast.makeText(context, "Failed update product data", Toast.LENGTH_SHORT).show();
+        } else {
+            //Toast.makeText(context, "Product data updated", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+    }
+    // Update the checkbox state
+    public void updateCartCheckbox(String cart_id, String checkbox) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_CART_ID, cart_id);
+        cv.put(COLUMN_CHECKBOX, checkbox);
+
+        long result = db.update(CART_TABLE, cv, "cart_id=?", new String[]{cart_id});
         if(result == -1) {
             //Toast.makeText(context, "Failed update product data", Toast.LENGTH_SHORT).show();
         } else {

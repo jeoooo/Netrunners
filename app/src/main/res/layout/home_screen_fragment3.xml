@@ -16,13 +16,13 @@
         android:background="@drawable/roundcorners2"
         android:text="Extenal Storage Device"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button_keyboards"
-        app:layout_constraintEnd_toStartOf="@+id/button_keyboards"
-        app:layout_constraintTop_toTopOf="@+id/button_keyboards"
+        app:layout_constraintBottom_toBottomOf="@+id/button_chair"
+        app:layout_constraintEnd_toStartOf="@+id/button_chair"
+        app:layout_constraintTop_toTopOf="@+id/button_chair"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button_keyboards"
+        android:id="@+id/button_chair"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/roundcorners2"
@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.067" />
 
     <Button
-        android:id="@+id/button_mouse"
+        android:id="@+id/button_computerDesks"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="36dp"
@@ -43,13 +43,13 @@
         android:background="@drawable/roundcorners2"
         android:text="Computer Desks"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button_keyboards"
-        app:layout_constraintStart_toEndOf="@+id/button_keyboards"
-        app:layout_constraintTop_toTopOf="@+id/button_keyboards"
+        app:layout_constraintBottom_toBottomOf="@+id/button_chair"
+        app:layout_constraintStart_toEndOf="@+id/button_chair"
+        app:layout_constraintTop_toTopOf="@+id/button_chair"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button_monitors"
+        android:id="@+id/button_cables"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginEnd="36dp"
@@ -57,13 +57,13 @@
         android:background="@drawable/roundcorners2"
         android:text="Cables"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button_headsets"
-        app:layout_constraintEnd_toStartOf="@+id/button_headsets"
-        app:layout_constraintTop_toTopOf="@+id/button_headsets"
+        app:layout_constraintBottom_toBottomOf="@+id/button_projector"
+        app:layout_constraintEnd_toStartOf="@+id/button_projector"
+        app:layout_constraintTop_toTopOf="@+id/button_projector"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button_headsets"
+        android:id="@+id/button_projector"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/roundcorners2"
@@ -72,11 +72,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_keyboards"
+        app:layout_constraintTop_toBottomOf="@+id/button_chair"
         app:layout_constraintVertical_bias="0.244" />
 
     <Button
-        android:id="@+id/button_computerChairs"
+        android:id="@+id/button_router"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="36dp"
@@ -84,9 +84,9 @@
         android:background="@drawable/roundcorners2"
         android:text="Routers"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button_headsets"
-        app:layout_constraintStart_toEndOf="@+id/button_headsets"
-        app:layout_constraintTop_toTopOf="@+id/button_headsets"
+        app:layout_constraintBottom_toBottomOf="@+id/button_projector"
+        app:layout_constraintStart_toEndOf="@+id/button_projector"
+        app:layout_constraintTop_toTopOf="@+id/button_projector"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -109,7 +109,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_headsets"
+        app:layout_constraintTop_toBottomOf="@+id/button_projector"
         app:layout_constraintVertical_bias="0.306" />
 
     <Button
