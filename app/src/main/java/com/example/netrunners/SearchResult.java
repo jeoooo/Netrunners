@@ -20,6 +20,7 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
     RecyclerView recyclerView;
     ImageView homeButton, buttonMyCart;
     EditText searchBar;
+    Spinner spinner;
 
     String[][] spinner_array = {
             {"All Price(Lowest -> Highest)", "All", "low to high"},
@@ -117,11 +118,14 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setNestedScrollingEnabled(true);
 
-        Spinner spinner = findViewById(R.id.spinner);
+        spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.sort, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+        if(getIntent().hasExtra("selectedSpinner")) {
+            spinner.setSelection(getIntent().getExtras().getInt("selectedSpinner"));
+        }
     }
 
     private void openHomeScreenActivity() {

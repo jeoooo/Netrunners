@@ -33,7 +33,7 @@
         app:srcCompat="@drawable/netrunners" />
 
     <TextView
-        android:id="@+id/textView_computerProcessors"
+        android:id="@+id/textView_processor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="COMPUTER PROCESSORS"
@@ -46,7 +46,7 @@
         app:layout_constraintVertical_bias="0.319" />
 
     <TextView
-        android:id="@+id/textView_motherBoards"
+        android:id="@+id/textView_motherboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -61,7 +61,7 @@
         app:layout_constraintVertical_bias="0.822" />
 
     <ImageView
-        android:id="@+id/imageView_graphicsAMD"
+        android:id="@+id/imageView_graphics1"
         android:layout_width="200dp"
         android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,7 +73,7 @@
         app:srcCompat="@drawable/amd_gpu" />
 
     <ImageView
-        android:id="@+id/imageView_grahpicsNvidia"
+        android:id="@+id/imageView_grahpics2"
         android:layout_width="200dp"
         android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -99,7 +99,7 @@
         app:layout_constraintVertical_bias="0.499" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageView_motherboard1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -111,7 +111,7 @@
         app:srcCompat="@drawable/motherboard" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imageView_processor1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -123,7 +123,7 @@
         app:srcCompat="@drawable/intel_logo" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/imageView_processor2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

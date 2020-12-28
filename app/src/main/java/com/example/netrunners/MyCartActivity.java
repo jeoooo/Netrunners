@@ -82,7 +82,9 @@ public class MyCartActivity extends AppCompatActivity {
         ArrayList<MyProduct> allCart = MyData.getAllCartProduct(context);
         int total = 0;
         for(int j = 0; j < allCart.size(); j ++) {
-            total += allCart.get(j).getPrice() * allCart.get(j).getQuantity();
+            if(allCart.get(j).getCheckbox() == 1) {
+                total += allCart.get(j).getPrice() * allCart.get(j).getQuantity();
+            }
         }
         textView_total.setText(String.valueOf(total));
     }

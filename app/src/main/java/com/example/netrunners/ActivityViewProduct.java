@@ -48,7 +48,8 @@ public class ActivityViewProduct extends AppCompatActivity {
                     String category = temp.getCategory();
                     String price = String.valueOf(temp.getPrice());
                     String quantity = String.valueOf(temp.getQuantity()+1);
-                    pdb.addCart(id, image, name, category, price, quantity);
+                    String checkbox = String.valueOf(0);
+                    pdb.addCart(id, image, name, category, price, quantity, checkbox);
                     Toast.makeText(getBaseContext(), "Added to Cart", Toast.LENGTH_SHORT).show();
                 }
 

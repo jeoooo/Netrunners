@@ -1,10 +1,12 @@
 package com.example.netrunners;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -40,6 +42,36 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.textView_price.setText(String.valueOf(cart.get(position).getPrice()));
         holder.textView_quantity.setText(String.valueOf(cart.get(position).getQuantity()));
         holder.imageView.setImageResource(cart.get(position).getImage());
+        holder.checkBox.setChecked(cart.get(position).getCheckbox() == 1);
+
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ActivityViewProduct.class);
+                intent.putExtra("Id", cart.get(position).getId());
+                context.startActivity(intent);
+            }
+        });
+
+        holder.checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProductDatabase cartDB = new ProductDatabase(context);
+                if(cart.get(position).getCheckbox() == 1) {
+                    cart.get(position).setCheckbox(0);
+                    String cart_id = String.valueOf(cart.get(position).getCart_Id());
+                    String checkbox = String.valueOf(cart.get(position).getCheckbox());
+                    cartDB.updateCartCheckbox(cart_id, checkbox);
+                    MyCartActivity.getTotal(context);
+                } else if(cart.get(position).getCheckbox() == 0) {
+                    cart.get(position).setCheckbox(1);
+                    String cart_id = String.valueOf(cart.get(position).getCart_Id());
+                    String checkbox = String.valueOf(cart.get(position).getCheckbox());
+                    cartDB.updateCartCheckbox(cart_id, checkbox);
+                    MyCartActivity.getTotal(context);
+                }
+            }
+        });
 
         holder.subtract.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +112,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         TextView textView_name, textView_price, textView_quantity;
         ImageView imageView;
         Button subtract, add;
+        CheckBox checkBox;
 
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -89,6 +122,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             imageView = itemView.findViewById(R.id.imageView_productImage);
             subtract = itemView.findViewById(R.id.button_subtract);
             add = itemView.findViewById(R.id.button_add);
+            checkBox = itemView.findViewById(R.id.checkBox);
         }
     }
 

@@ -33,7 +33,7 @@
         app:srcCompat="@drawable/netrunners" />
 
     <TextView
-        android:id="@+id/textView_monitors"
+        android:id="@+id/textView_monitor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="MONITORS"
@@ -47,7 +47,7 @@
         app:layout_constraintVertical_bias="0.233" />
 
     <TextView
-        android:id="@+id/textView_headsets"
+        android:id="@+id/textView_headset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -62,7 +62,7 @@
         app:layout_constraintVertical_bias="0.683" />
 
     <TextView
-        android:id="@+id/textView_printers"
+        android:id="@+id/textView_printer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -77,7 +77,7 @@
         app:layout_constraintVertical_bias="0.822" />
 
     <ImageView
-        android:id="@+id/imageView_monitor"
+        android:id="@+id/imageView_monitor1"
         android:layout_width="200dp"
         android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -89,7 +89,7 @@
         app:srcCompat="@drawable/monitors" />
 
     <ImageView
-        android:id="@+id/imageView_headset"
+        android:id="@+id/imageView_headset1"
         android:layout_width="180dp"
         android:layout_height="180dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -101,7 +101,7 @@
         app:srcCompat="@drawable/gaming_headsets" />
 
     <ImageView
-        android:id="@+id/imageView_printer"
+        android:id="@+id/imageView_printer1"
         android:layout_width="200dp"
         android:layout_height="140dp"
         app:layout_constraintBottom_toBottomOf="parent"

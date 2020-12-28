@@ -10,6 +10,7 @@ public class MyProduct {
     private int quantity;
     private int cart_id;
     private String description;
+    private int checkbox;
 
     // ArrayList to store the data temporarily from the table
     public MyProduct(int id, int image, String name, String category, double price, int stock, String description) {
@@ -32,7 +33,7 @@ public class MyProduct {
     }
 
     // Temporarily store the data from SQLite cart table
-    public MyProduct(int cart_id, int id, int image, String name, String category, double price, int quantity) {
+    public MyProduct(int cart_id, int id, int image, String name, String category, double price, int quantity, int checkbox) {
         this.cart_id = cart_id;
         this.id = id;
         this.image = image;
@@ -40,10 +41,19 @@ public class MyProduct {
         this.category = category;
         this.price = price;
         this.quantity = quantity;
+        this.checkbox = checkbox;
     }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public void setCheckbox(int checkbox) {
+        this.checkbox = checkbox;
+    }
+
+    public int getCheckbox() {
+        return checkbox;
     }
 
     public int getId() {
