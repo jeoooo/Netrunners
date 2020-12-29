@@ -14,7 +14,7 @@
         android:layout_marginStart="35dp"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="10dp"
-        android:text="Most Searched"
+        android:text="Recently Searched"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,12 +57,20 @@
         app:layout_constraintTop_toTopOf="@+id/searchActivity_searchBar"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ListView
-        android:layout_width="370dp"
-        android:layout_height="310dp"
-        android:layout_marginTop="10dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_searchActivity"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_allProducts" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_allProducts"
+        app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

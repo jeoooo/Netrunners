@@ -1076,4 +1076,15 @@ public class MyData {
         return db.getCartArrayList();
     }
 
+    public static void deleteSearchIfExist(Context context, String search) {
+        ProductDatabase searchTable = new ProductDatabase(context);
+        ArrayList<SearchObject> temp = searchTable.getSearchList();
+        for(int j = 0; j < temp.size(); j++) {
+            if(temp.get(j).getSearch().toLowerCase().equals(search.toLowerCase())) {
+                searchTable.deleteExistingSearch(String.valueOf(temp.get(j).getSearchId()));
+            }
+        }
+
+    }
+
 }

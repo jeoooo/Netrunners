@@ -136,7 +136,6 @@ public class SearchResult extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String selected = parent.getItemAtPosition(position).toString();
-        Toast.makeText(this, selected, Toast.LENGTH_SHORT).show();
 
         if(selected.equals("---")) {
             MyAdapter myAdapter = new MyAdapter(this, "All", "none", String.valueOf(searchBar.getText()));

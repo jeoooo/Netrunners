@@ -15,7 +15,7 @@ public class ProductDatabase extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATABASE_NAME = "Products.db";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
 
     private static final String PRODUCTS_TABLE = "Products";
     private static final String COLUMN_ID = "id";
@@ -30,6 +30,10 @@ public class ProductDatabase extends SQLiteOpenHelper {
     private static final String COLUMN_CART_ID = "cart_id";
     private static final String COLUMN_QUANTITY = "quantity";
     private static final String COLUMN_CHECKBOX = "checkbox";
+
+    private static final String SEARCH_TABLE = "Search";
+    private static final String COLUMN_SEARCH_ID = "search_id";
+    private static final String COLUMN_SEARCH_TEXT = "search_text";
 
     public ProductDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -59,14 +63,22 @@ public class ProductDatabase extends SQLiteOpenHelper {
                 COLUMN_QUANTITY + " INTEGER, " +
                 COLUMN_CHECKBOX + " INTEGER);";
         db.execSQL(query);
+        // Search Table
+        query = "CREATE TABLE " + SEARCH_TABLE +
+                " (" + COLUMN_SEARCH_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_SEARCH_TEXT + " TEXT);";
+        db.execSQL(query);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + PRODUCTS_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + CART_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + SEARCH_TABLE);
         onCreate(db);
     }
+
+    // Product Table Methods
 
     // For product table
     public void addProduct(String image, String name, String category, String price, String stock, String description) {
@@ -82,10 +94,10 @@ public class ProductDatabase extends SQLiteOpenHelper {
 
         long result = db.insert(PRODUCTS_TABLE, null, cv);
         if(result == -1) {
-            //Toast.makeText(context, "Failed to save data", Toast.LENGTH_SHORT).show();
+
         }
         else {
-            //Toast.makeText(context, "Save data successful", Toast.LENGTH_SHORT).show();
+
         }
         db.close();
     }
@@ -151,13 +163,13 @@ public class ProductDatabase extends SQLiteOpenHelper {
 
         long result = db.update(PRODUCTS_TABLE, cv, "id=?", new String[]{id});
         if(result == -1) {
-            //Toast.makeText(context, "Failed update product data", Toast.LENGTH_SHORT).show();
+
         } else {
-            //Toast.makeText(context, "Product data updated", Toast.LENGTH_SHORT).show();
+
         }
     }
 
-    // All cart table here
+    // Cart Table Methods
 
     public void addCart(String id, String image, String name, String category, String price, String quantity, String checkbox) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -173,7 +185,7 @@ public class ProductDatabase extends SQLiteOpenHelper {
 
         long result = db.insert(CART_TABLE, null, cv);
         if(result == -1) {
-            Toast.makeText(context, "add cart error", Toast.LENGTH_LONG).show();
+
         }
         else {
 
@@ -222,9 +234,9 @@ public class ProductDatabase extends SQLiteOpenHelper {
 
         long result = db.update(CART_TABLE, cv, "id=?", new String[]{id});
         if(result == -1) {
-            //Toast.makeText(context, "Failed update product data", Toast.LENGTH_SHORT).show();
+
         } else {
-            //Toast.makeText(context, "Product data updated", Toast.LENGTH_SHORT).show();
+
         }
         db.close();
     }
@@ -238,9 +250,9 @@ public class ProductDatabase extends SQLiteOpenHelper {
 
         long result = db.update(CART_TABLE, cv, "cart_id=?", new String[]{cart_id});
         if(result == -1) {
-            //Toast.makeText(context, "Failed update product data", Toast.LENGTH_SHORT).show();
+
         } else {
-            //Toast.makeText(context, "Product data updated", Toast.LENGTH_SHORT).show();
+
         }
         db.close();
     }
@@ -253,9 +265,63 @@ public class ProductDatabase extends SQLiteOpenHelper {
 
         long result = db.delete(CART_TABLE, "cart_id=?", new String[]{cart_id});
         if(result == -1) {
-            //Toast.makeText(context, "Failed update product data", Toast.LENGTH_SHORT).show();
+
         } else {
-            //Toast.makeText(context, "Product data updated", Toast.LENGTH_SHORT).show();
+
+        }
+        db.close();
+    }
+
+    // Search Table Methods
+
+    public void addSearch(String search) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_SEARCH_TEXT, search);
+
+
+        long result = db.insert(SEARCH_TABLE, null, cv);
+        if(result == -1) {
+
+        }
+        else {
+
+        }
+        db.close();
+    }
+
+    public ArrayList<SearchObject> getSearchList() {
+        ArrayList<SearchObject> rtn = new ArrayList<>();
+
+        String queryString = "SELECT * FROM " + SEARCH_TABLE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if(cursor.moveToLast()) {
+            do {
+                rtn.add(new SearchObject(cursor.getInt(0 ), cursor.getString(1)));
+            } while(cursor.moveToPrevious());
+        }
+        else {
+
+        }
+        cursor.close();
+        db.close();
+        return rtn;
+    }
+
+    public void deleteExistingSearch(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_SEARCH_ID, id);
+
+        long result = db.delete(SEARCH_TABLE, "search_id=?", new String[]{id});
+        if(result == -1) {
+
+        } else {
+
         }
         db.close();
     }
