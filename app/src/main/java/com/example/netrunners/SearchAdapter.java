@@ -37,12 +37,14 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     public void onBindViewHolder(@NonNull SearchViewHolder holder, final int position) {
         holder.setIsRecyclable(false);
         holder.textView_search.setText(search.get(position).getSearch());
+
         temp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, SearchResult.class);
-                intent.putExtra("search", String.valueOf(search.get(position).getSearch()));
-                context.startActivity(intent);
+                //Intent intent = new Intent(context, SearchResult.class);
+                //intent.putExtra("search", String.valueOf(search.get(position).getSearch()));
+                //context.startActivity(intent);
+                SearchActivity.searchBar.setText(String.valueOf(search.get(position).getSearch()));
             }
         });
     }

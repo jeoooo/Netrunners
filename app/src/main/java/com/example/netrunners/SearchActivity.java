@@ -16,7 +16,7 @@ import java.net.PortUnreachableException;
 public class SearchActivity extends AppCompatActivity {
 
     Button searchButton;
-    EditText searchBar;
+    static EditText searchBar;
     RecyclerView recyclerView_searchActivity;
 
     @Override
