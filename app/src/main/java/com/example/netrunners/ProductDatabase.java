@@ -15,7 +15,7 @@ public class ProductDatabase extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATABASE_NAME = "Products.db";
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 8;
 
     private static final String PRODUCTS_TABLE = "Products";
     private static final String COLUMN_ID = "id";
@@ -34,6 +34,16 @@ public class ProductDatabase extends SQLiteOpenHelper {
     private static final String SEARCH_TABLE = "Search";
     private static final String COLUMN_SEARCH_ID = "search_id";
     private static final String COLUMN_SEARCH_TEXT = "search_text";
+
+    private static final String ORDER_TABLE = "order_table";
+    private static final String COLUMN_ORDER_ID = "order_id";
+    private static final String COLUMN_ORDER_PRODUCT_ID = "ordered_product_id";
+    private static final String COLUMN_ORDER_PRODUCT_QUANTITY = "ordered_product_quantity";
+    private static final String COLUMN_CUSTOMER_FIRST_NAME = "customer_first_name";
+    private static final String COLUMN_CUSTOMER_LAST_NAME = "customer_last_name";
+    private static final String COLUMN_CUSTOMER_CONTACT_NUMBER = "customer_contact_number";
+    private static final String COLUMN_CUSTOMER_ADDRESS = "customer_address";
+    private static final String COLUMN_CUSTOMER_EMAIL_ADDRESS = "customer_email_address";
 
     public ProductDatabase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -68,6 +78,16 @@ public class ProductDatabase extends SQLiteOpenHelper {
                 " (" + COLUMN_SEARCH_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_SEARCH_TEXT + " TEXT);";
         db.execSQL(query);
+        query = "CREATE TABLE " + ORDER_TABLE +
+                " (" + COLUMN_ORDER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_ORDER_PRODUCT_ID + " TEXT, " +
+                COLUMN_ORDER_PRODUCT_QUANTITY + " TEXT, " +
+                COLUMN_CUSTOMER_FIRST_NAME + " TEXT, " +
+                COLUMN_CUSTOMER_LAST_NAME + " TEXT, " +
+                COLUMN_CUSTOMER_CONTACT_NUMBER + " TEXT, " +
+                COLUMN_CUSTOMER_ADDRESS + " TEXT, " +
+                COLUMN_CUSTOMER_EMAIL_ADDRESS + " TEXT);";
+        db.execSQL(query);
     }
 
     @Override
@@ -75,7 +95,30 @@ public class ProductDatabase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + PRODUCTS_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + CART_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + SEARCH_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + ORDER_TABLE);
         onCreate(db);
+    }
+
+    public void addOrder(String product_id, String product_quantity, String firstName, String lastName, String contactNumber, String address, String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_ORDER_PRODUCT_ID, product_id);
+        cv.put(COLUMN_ORDER_PRODUCT_QUANTITY, product_quantity);
+        cv.put(COLUMN_CUSTOMER_FIRST_NAME, firstName);
+        cv.put(COLUMN_CUSTOMER_LAST_NAME, lastName);
+        cv.put(COLUMN_CUSTOMER_CONTACT_NUMBER, contactNumber);
+        cv.put(COLUMN_CUSTOMER_ADDRESS, address);
+        cv.put(COLUMN_CUSTOMER_EMAIL_ADDRESS, email);
+
+        long result = db.insert(ORDER_TABLE, null, cv);
+        if(result == -1) {
+
+        }
+        else {
+
+        }
+        db.close();
     }
 
     // Product Table Methods

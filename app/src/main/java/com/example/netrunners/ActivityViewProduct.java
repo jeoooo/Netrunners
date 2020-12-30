@@ -3,6 +3,7 @@ package com.example.netrunners;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +17,7 @@ public class ActivityViewProduct extends AppCompatActivity {
 
     int id;
 
-    Button addToCartButton;
+    Button addToCartButton, button_buy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class ActivityViewProduct extends AppCompatActivity {
         setContentView(R.layout.activity_view_product);
 
         addToCartButton = findViewById(R.id.button2);
+        button_buy = findViewById(R.id.button3);
 
         id = getIntent().getIntExtra("Id", 0);
 
@@ -53,6 +55,15 @@ public class ActivityViewProduct extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "Added to Cart", Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+
+        button_buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), OrderSummaryActivity.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
             }
         });
 

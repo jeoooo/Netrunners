@@ -24,6 +24,7 @@ public class MyCartActivity extends AppCompatActivity {
     static TextView textView_total;
     RecyclerView recyclerView;
     CartAdapter cartAdapter;
+    static ArrayList<MyProduct> order = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +63,7 @@ public class MyCartActivity extends AppCompatActivity {
         button_checkOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Double.parseDouble(textView_total.getText().toString()) <= 0) {
+                if (getDoubleTotal(getBaseContext()) <= 0) {
                     new AlertDialog.Builder(MyCartActivity.this)
                             .setTitle("Empty Shopping Cart")
                             .setMessage("Your Shopping Cart is empty, please add items to your shopping cart")
@@ -77,6 +78,23 @@ public class MyCartActivity extends AppCompatActivity {
                             .show()
                             .setCancelable(false);
                 } else {
+                    ArrayList<MyProduct> temp = MyData.getAllCartProduct(getBaseContext());
+                    for(int j = 0; j < temp.size(); j++) {
+                        if(temp.get(j).getCheckbox() == 1) {
+                            if(order.equals(null)) {
+                                order.clear();
+                            }
+                            order.add(new MyProduct(temp.get(j).getCart_Id(),
+                                    temp.get(j).getId(),
+                                    temp.get(j).getImage(),
+                                    temp.get(j).getName(),
+                                    temp.get(j).getCategory(),
+                                    temp.get(j).getPrice(),
+                                    temp.get(j).getQuantity(),
+                                    temp.get(j).getCheckbox()
+                            ));
+                        }
+                    }
                     openOrderSummaryActivity();
                 }
             }
@@ -86,6 +104,7 @@ public class MyCartActivity extends AppCompatActivity {
 
     public void openOrderSummaryActivity() {
         Intent intent = new Intent(this, OrderSummaryActivity.class);
+        intent.putExtra("total", getDoubleTotal(getBaseContext()));
         startActivity(intent);
     }
 
@@ -93,6 +112,17 @@ public class MyCartActivity extends AppCompatActivity {
     public void openHomeScreenActivity() {
         Intent intent = new Intent(this, HomeScreenActivity.class);
         startActivity(intent);
+    }
+
+    public Double getDoubleTotal(Context context) {
+        ArrayList<MyProduct> allCart = MyData.getAllCartProduct(context);
+        Double total = 0.0;
+        for (int j = 0; j < allCart.size(); j++) {
+            if (allCart.get(j).getCheckbox() == 1) {
+                total += allCart.get(j).getPrice() * allCart.get(j).getQuantity();
+            }
+        }
+        return total;
     }
 
     // Sets the total of displayed on Cart Activity
