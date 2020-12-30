@@ -36,9 +36,9 @@ public class OrderSummaryActivity extends AppCompatActivity {
         personEmailAddress = findViewById(R.id.editTextTextPersonName5);
 
         if(getIntent().hasExtra("total")) {
-            textView_total.setText(String.valueOf(getIntent().getDoubleExtra("total", 0)));
+            textView_total.setText(MyData.FormatNumber(Double.valueOf(String.valueOf(getIntent().getDoubleExtra("total", 0)))));
         } else if(getIntent().hasExtra("id")) {
-            textView_total.setText(String.valueOf(MyData.getProduct(getBaseContext(), getIntent().getIntExtra("id", 0)).getPrice()));
+            textView_total.setText(MyData.FormatNumber(Double.valueOf(String.valueOf(MyData.getProduct(getBaseContext(), getIntent().getIntExtra("id", 0)).getPrice()))));
         }
 
         imageButton_backToCart.setOnClickListener(new View.OnClickListener() {
